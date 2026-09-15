@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCB Replies — Privacy Policy</title>
+<style>
+  :root { --ink:#1b2a25; --pine:#22382f; --sage:#7d9080; --line:#e2e6e2; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+         line-height:1.65; color:var(--ink); background:#f6f7f5; padding:40px 20px; }
+  .wrap { max-width:820px; margin:0 auto; background:#fff; padding:48px 44px;
+          border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.07); }
+  h1 { font-size:2em; color:var(--pine); margin-bottom:6px; }
+  .meta { color:#6b7770; font-size:.9em; margin-bottom:28px; }
+  h2 { font-size:1.2em; color:var(--pine); margin:32px 0 12px;
+       padding-bottom:6px; border-bottom:2px solid var(--sage); }
+  h3 { font-size:1em; margin:20px 0 8px; color:var(--pine); }
+  p, ul, table { margin-bottom:14px; }
+  ul { padding-left:24px; } li { margin-bottom:6px; }
+  .box { background:#f2f5f1; border-left:4px solid var(--sage);
+         padding:16px 18px; border-radius:6px; margin:20px 0; }
+  table { width:100%; border-collapse:collapse; font-size:.94em; }
+  th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { background:#f2f5f1; color:var(--pine); }
+  .contact { background:#f6f7f5; padding:20px; border-radius:8px; margin-top:32px; }
+  footer { text-align:center; color:#8a938c; font-size:.85em; margin-top:28px; }
+  a { color:var(--pine); }
+  @media (max-width:520px){ .wrap{padding:28px 20px;} table{font-size:.86em;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>CCB Replies — Privacy Policy</h1>
+<div class="meta">Last updated: 14 September 2026 &nbsp;·&nbsp; Version 2.0</div>
+
+<div class="box">
+  <strong>In short:</strong> CCB Replies is a workplace tool used by a company's own
+  communications staff. It reads posts that are already public, helps a staff member
+  draft a reply, and requires a human to approve every reply. It does not collect
+  personal information from the public, does not sell data to anyone, and — unless the
+  company deliberately switches on Team mode — stores everything on the staff member's
+  own computer.
+</div>
+
+<h2>1. Who this policy is for</h2>
+<p>
+  CCB Replies ("the Extension") is a Chrome extension supplied by Danny Jones
+  ("we", "the vendor") to businesses for use by their own employees. It is not a
+  consumer product and is not marketed to the general public.
+</p>
+<p>
+  Two groups are relevant here: the <strong>staff member</strong> who installs and uses
+  the Extension, and the <strong>company</strong> that deploys it and decides how it is
+  configured. Where the company controls a decision, this policy says so plainly.
+</p>
+
+<h2>2. What the Extension does</h2>
+<p>
+  The Extension runs inside the staff member's own browser, on the sites listed below,
+  while that staff member is signed in under their own account. It:
+</p>
+<ul>
+  <li>reads the text of posts, comments and reviews that are already publicly visible on the page;</li>
+  <li>scores those posts against the company's own configured topics of interest;</li>
+  <li>sends selected post text to an AI model to draft a suggested reply;</li>
+  <li>shows that draft to a staff member for review and editing;</li>
+  <li>on approval, places the approved text into the site's own reply box, or copies it to the clipboard;</li>
+  <li>records what was drafted, edited and sent in an activity log.</li>
+</ul>
+<p>The sites it runs on are: Reddit, YouTube, Google Business Reviews (Maps, Search and Local review panels), and the customer's own community forum where configured.</p>
+
+<h3>Posting behaviour</h3>
+<p>
+  On most sites the Extension fills the reply box and stops — the staff member clicks the
+  site's own Post button. On old.reddit.com only, the company may enable an option in which
+  the Extension clicks the site's Submit button on the staff member's behalf, and only
+  after that staff member has explicitly approved that specific reply. There is no
+  unattended, scheduled or bulk posting of any kind. The Extension never posts without a
+  human having approved the exact wording first.
+</p>
+
+<h2>3. What data is handled, and where it goes</h2>
+
+<h3>Solo mode (the default)</h3>
+<p>
+  Everything the Extension keeps — the queue of flagged posts, drafts, settings, the
+  activity log — is stored in Chrome's own extension storage on the staff member's
+  computer. The only data that leaves the browser is:
+</p>
+<ul>
+  <li>the text of a public post plus the drafting instructions, sent to the configured AI provider so it can generate a suggestion;</li>
+  <li>ordinary page requests to the public site being viewed, made under the staff member's own logged-in session.</li>
+</ul>
+<p>No vendor-operated server receives any of this in Solo mode. The vendor cannot see it.</p>
+
+<h3>Team mode (optional, switched on by a company administrator)</h3>
+<p>
+  When a company turns on Team mode, the same flagged posts, drafts and sent replies are
+  also written to a Postgres database hosted on Supabase, in a project the
+  <strong>company itself</strong> provisions, owns and controls. Records written include the
+  post title, an excerpt of the post text, the AI-drafted reply, the final reply text sent,
+  the staff account that sent it, and a timestamp. Access is restricted by database-enforced
+  row-level rules tied to each staff member's assigned role.
+</p>
+<p>
+  Team accounts are identified by work email address and are created by a company
+  administrator. The vendor does not operate that database and holds no independent copy
+  of its contents.
+</p>
+
+<h3>Summary table</h3>
+<table>
+  <tr><th>Data</th><th>Where it lives</th><th>Who can see it</th></tr>
+  <tr><td>Settings, brand configuration, topic rules</td><td>The staff member's browser (and Chrome Sync if enabled)</td><td>That staff member; other staff in Team mode</td></tr>
+  <tr><td>Flagged public posts and drafts</td><td>The staff member's browser; also the company's database in Team mode</td><td>That staff member; the company's team in Team mode</td></tr>
+  <tr><td>Public post text sent for drafting</td><td>Transmitted to the configured AI provider; not stored by the vendor</td><td>The AI provider, per its own policy</td></tr>
+  <tr><td>Activity log of replies sent</td><td>The staff member's browser; also the company's database in Team mode</td><td>The company</td></tr>
+  <tr><td>Staff email address and role</td><td>The company's own Supabase project (Team mode only)</td><td>The company's administrators</td></tr>
+  <tr><td>AI spending totals</td><td>The staff member's browser; the company's database in Team mode</td><td>The company</td></tr>
+</table>
+
+<h2>4. The AI provider</h2>
+<p>
+  Reply drafting and post scoring are performed by a large language model. By default this
+  is Anthropic's Claude API. A company whose IT policy requires it may instead configure its
+  own Microsoft Azure OpenAI deployment, in which case prompts go to that company's own
+  cloud tenant and not to Anthropic.
+</p>
+<p>
+  Anthropic's published policy states that it does not train its models on data submitted
+  through its commercial API by default, and deletes such inputs and outputs from its
+  backend within 30 days by default. That is Anthropic's stated policy, not a guarantee
+  made by the vendor.
+</p>
+<p>
+  Where a company supplies a single shared AI key, that key is held server-side in the
+  company's own Supabase project and is never present in any staff member's browser.
+</p>
+
+<h2>5. What the Extension never does</h2>
+<ul>
+  <li>It does not collect payment details, and there is no consumer sign-up.</li>
+  <li>It does not sell, rent or share data with data brokers, advertisers or any third party for advertising.</li>
+  <li>It does not read or transmit the staff member's browsing history, and it does not run on any site other than those listed in section 2.</li>
+  <li>It does not capture account credentials, cookies or session tokens from any site.</li>
+  <li>It does not attempt to identify a poster, match a poster to any internal patient or customer record, or collect any information about a member of the public beyond what that person has already published on a public page.</li>
+  <li>It does not send data to the vendor. The vendor operates no server that receives customer content.</li>
+</ul>
+
+<h2>6. Sensitive subject matter</h2>
+<p>
+  The Extension may be used in health-adjacent communities, including fertility discussion
+  forums. It reads only what a person has chosen to publish publicly.
+</p>
+<p>
+  The Extension is designed for general, supportive, non-clinical replies. It includes
+  guidance intended to steer drafts away from medical advice, away from an individual's
+  specific circumstances, and away from any information not already visible in that person's
+  own public post. These are design features, not guarantees: every draft is reviewed and
+  approved by the deploying company's own staff, and that company decides what is actually
+  published.
+</p>
+<p>
+  The Extension is not intended for use as a medical device, is not designed to receive or
+  store patient records, and is not supplied for any clinical purpose.
+</p>
+
+<h2>7. Link tagging</h2>
+<p>
+  Where a company enables it, links included in a reply may carry standard UTM campaign
+  parameters so the company can see in its own analytics that a visit came from a community
+  reply. These parameters identify the campaign, not the person. No cookie, pixel, device
+  fingerprint or personal identifier is added.
+</p>
+
+<h2>8. Retention and deletion</h2>
+<ul>
+  <li><strong>Solo mode:</strong> data stays in the browser until the staff member clears it, uses an in-product reset, or uninstalls the Extension. Uninstalling removes it.</li>
+  <li><strong>Team mode:</strong> data is retained in the company's own database under the company's own retention policy. A company administrator can delete records directly at any time.</li>
+</ul>
+
+<h2>9. Requests about personal data</h2>
+<p>
+  Because the Extension is an internal business tool operated and configured by the company
+  that deploys it, any request relating to personal data handled through it should be
+  directed to that company, which acts as the data controller. The vendor holds no customer
+  data independently and cannot respond to such requests on the company's behalf.
+</p>
+
+<h2>10. Security</h2>
+<ul>
+  <li>All network communication uses HTTPS.</li>
+  <li>No AI provider key is embedded in the published Extension code.</li>
+  <li>Team data access is enforced by database row-level security tied to the signed-in account's role.</li>
+  <li>The Extension loads no remote code; all executable code ships inside the reviewed package.</li>
+</ul>
+
+<h2>11. Children</h2>
+<p>The Extension is a workplace tool for adult employees and is not directed at anyone under 18.</p>
+
+<h2>12. Changes</h2>
+<p>
+  This policy may be updated as the product changes. Material changes will be reflected in
+  the "Last updated" date above, and customers under a current agreement will be notified.
+</p>
+
+<div class="contact">
+  <strong>Contact</strong><br>
+  Danny Jones — independent vendor<br>
+  <a href="mailto:nolimitjones@gmail.com">nolimitjones@gmail.com</a>
+</div>
+
+<footer>© 2026 Danny Jones. CCB Replies.</footer>
+</div>
+</body>
+</html>
