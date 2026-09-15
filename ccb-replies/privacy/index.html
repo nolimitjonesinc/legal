@@ -33,7 +33,7 @@
 <div class="wrap">
 
 <h1>CCB Replies — Privacy Policy</h1>
-<div class="meta">Last updated: 15 September 2026 &nbsp;·&nbsp; Version 2.1</div>
+<div class="meta">Last updated: 15 September 2026 &nbsp;·&nbsp; Version 2.2</div>
 
 <div class="box">
   <strong>In short:</strong> CCB Replies is a workplace tool used by a company's own
@@ -153,7 +153,11 @@
       any third party for advertising or profiling. Public post content is transmitted only to
       the AI provider selected for the drafting function and, in Team mode, to infrastructure
       the deploying company controls.</li>
-  <li>It does not read or transmit the staff member's browsing history, and it does not run on any site other than those listed in section 2.</li>
+  <li>It does not access the browser's history, and it does not run on, read or inject anything
+      into any site other than those listed in section 2. To find the right tab when a reviewer
+      opens a queue item or runs a self-test, it briefly checks the addresses of the tabs
+      currently open; it keeps none of them, transmits none of them, and looks at nothing inside
+      a tab that is not one of the listed sites.</li>
   <li>It does not capture account credentials, cookies or session tokens from any site.</li>
   <li>It does not attempt to determine a poster's real-world identity, enrich a public profile
       with information from anywhere else, or match a poster against internal patient, customer,
@@ -177,18 +181,46 @@
 </p>
 <p>
   The Extension is not intended for use as a medical device, is not designed to receive or
-  store patient records, and is not supplied for any clinical purpose. It is not intended to
-  ingest protected health information from internal systems, electronic health records,
-  patient portals, CRM records or any other non-public healthcare data, and it has no
-  connection to such systems.
+  store patient records, and is not supplied for any clinical purpose.
+</p>
+<p>
+  Information flows one way. The Extension reads public web pages and writes reply text; it
+  never reads <em>from</em> the company's internal systems. It holds no credentials for, and
+  makes no connection to, electronic health records, patient portals, customer databases,
+  marketing platforms or CRM systems, and no information from any of those systems is available
+  to it or to the AI model. Nothing a reviewer sees in the queue comes from anywhere but the
+  public page itself.
+</p>
+<p>
+  Link tagging, described in section 7, works in the opposite direction and does not change
+  this: the company's own website and CRM may record visits arriving from a tagged link, in the
+  company's own systems and under its own privacy notice. The Extension sends nothing to them
+  and receives nothing from them.
 </p>
 
 <h2>7. Link tagging</h2>
 <p>
-  Where a company enables it, links included in a reply may carry standard UTM campaign
-  parameters so the company can see in its own analytics that a visit came from a community
-  reply. These parameters identify the campaign, not the person. No cookie, pixel, device
-  fingerprint or personal identifier is added.
+  Link tagging is off until a company turns it on. When it is on, links that come from the
+  company's own approved resource library are stamped with standard UTM campaign parameters at
+  the moment a reply is approved. Links the reviewer types themselves, and links already
+  present in the conversation, are left alone.
+</p>
+<p>
+  The parameters describe the campaign and the context of the reply: the campaign name and
+  source the company types in itself, the platform the reply was published on, and a reference
+  number for the queue item the reply came from. That reference lets the company trace a visit
+  back to the conversation that prompted it. It says nothing about who the visitor is, and no
+  cookie, pixel, device fingerprint or personal identifier is added by the Extension.
+</p>
+<p>
+  <strong>What happens after someone clicks is the company's own business, not the
+  Extension's.</strong> A tagged link is an ordinary web address. When a person clicks it they
+  arrive at the company's own website, and whatever that website and the company's analytics or
+  CRM normally record about a visit — which may over time be associated with a person who later
+  identifies themselves, for example by filling in a form — is recorded in the company's own
+  systems under the company's own privacy notice. The Extension is not involved in that, sends
+  nothing to any CRM or analytics platform, holds no CRM credentials, and never learns who
+  clicked.
 </p>
 
 <h2>8. Retention and deletion</h2>
