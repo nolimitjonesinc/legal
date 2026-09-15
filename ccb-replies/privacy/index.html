@@ -33,15 +33,16 @@
 <div class="wrap">
 
 <h1>CCB Replies — Privacy Policy</h1>
-<div class="meta">Last updated: 14 September 2026 &nbsp;·&nbsp; Version 2.0</div>
+<div class="meta">Last updated: 15 September 2026 &nbsp;·&nbsp; Version 2.1</div>
 
 <div class="box">
   <strong>In short:</strong> CCB Replies is a workplace tool used by a company's own
-  communications staff. It reads posts that are already public, helps a staff member
-  draft a reply, and requires a human to approve every reply. It does not collect
-  personal information from the public, does not sell data to anyone, and — unless the
-  company deliberately switches on Team mode — stores everything on the staff member's
-  own computer.
+  communications staff. It processes content that people have already published publicly,
+  so staff can find relevant conversations and draft replies to them. Every reply requires
+  human approval before it is published. The Extension does not seek private account
+  information, credentials, browsing history, or any non-public information about members of
+  the public. It does not sell data to anyone, and — unless the company deliberately
+  switches on Team mode — everything stays on the staff member's own computer.
 </div>
 
 <h2>1. Who this policy is for</h2>
@@ -62,7 +63,9 @@
   while that staff member is signed in under their own account. It:
 </p>
 <ul>
-  <li>reads the text of posts, comments and reviews that are already publicly visible on the page;</li>
+  <li>reads the text of posts, comments and reviews that are already publicly visible on the
+      page, together with their public display name or handle, the page address, and
+      publicly shown details such as the community, rating or post age;</li>
   <li>scores those posts against the company's own configured topics of interest;</li>
   <li>sends selected post text to an AI model to draft a suggested reply;</li>
   <li>shows that draft to a staff member for review and editing;</li>
@@ -100,8 +103,10 @@
   When a company turns on Team mode, the same flagged posts, drafts and sent replies are
   also written to a Postgres database hosted on Supabase, in a project the
   <strong>company itself</strong> provisions, owns and controls. Records written include the
-  post title, an excerpt of the post text, the AI-drafted reply, the final reply text sent,
-  the staff account that sent it, and a timestamp. Access is restricted by database-enforced
+  post title, an excerpt of the post text, the page address, the AI-drafted reply, the final
+  reply text sent, the staff account that sent it, and a timestamp. The poster's display name
+  or handle is <strong>not</strong> written to the database; it stays in the reviewer's own
+  browser, where it is used to show who the reply is addressed to. Access is restricted by database-enforced
   row-level rules tied to each staff member's assigned role.
 </p>
 <p>
@@ -117,6 +122,7 @@
   <tr><td>Flagged public posts and drafts</td><td>The staff member's browser; also the company's database in Team mode</td><td>That staff member; the company's team in Team mode</td></tr>
   <tr><td>Public post text sent for drafting</td><td>Transmitted to the configured AI provider; not stored by the vendor</td><td>The AI provider, per its own policy</td></tr>
   <tr><td>Activity log of replies sent</td><td>The staff member's browser; also the company's database in Team mode</td><td>The company</td></tr>
+  <tr><td>Poster's public display name or handle</td><td>The staff member's browser only — never written to the team database</td><td>That staff member</td></tr>
   <tr><td>Staff email address and role</td><td>The company's own Supabase project (Team mode only)</td><td>The company's administrators</td></tr>
   <tr><td>AI spending totals</td><td>The staff member's browser; the company's database in Team mode</td><td>The company</td></tr>
 </table>
@@ -129,10 +135,11 @@
   cloud tenant and not to Anthropic.
 </p>
 <p>
-  Anthropic's published policy states that it does not train its models on data submitted
-  through its commercial API by default, and deletes such inputs and outputs from its
-  backend within 30 days by default. That is Anthropic's stated policy, not a guarantee
-  made by the vendor.
+  Anthropic currently states that inputs and outputs submitted through its commercial API are
+  not used to train its models by default, and that they are normally deleted from its backend
+  within 30 days — subject to exceptions including separately agreed retention arrangements,
+  legal obligations, and enforcement of its usage policies. That is Anthropic's stated policy,
+  which Anthropic may change, and not a guarantee made by the vendor.
 </p>
 <p>
   Where a company supplies a single shared AI key, that key is held server-side in the
@@ -142,10 +149,16 @@
 <h2>5. What the Extension never does</h2>
 <ul>
   <li>It does not collect payment details, and there is no consumer sign-up.</li>
-  <li>It does not sell, rent or share data with data brokers, advertisers or any third party for advertising.</li>
+  <li>It does not sell or rent data, and does not disclose data to data brokers, advertisers or
+      any third party for advertising or profiling. Public post content is transmitted only to
+      the AI provider selected for the drafting function and, in Team mode, to infrastructure
+      the deploying company controls.</li>
   <li>It does not read or transmit the staff member's browsing history, and it does not run on any site other than those listed in section 2.</li>
   <li>It does not capture account credentials, cookies or session tokens from any site.</li>
-  <li>It does not attempt to identify a poster, match a poster to any internal patient or customer record, or collect any information about a member of the public beyond what that person has already published on a public page.</li>
+  <li>It does not attempt to determine a poster's real-world identity, enrich a public profile
+      with information from anywhere else, or match a poster against internal patient, customer,
+      marketing or other private records. It collects no information about a member of the public
+      beyond what that person has already published on the public page being viewed.</li>
   <li>It does not send data to the vendor. The vendor operates no server that receives customer content.</li>
 </ul>
 
@@ -164,7 +177,10 @@
 </p>
 <p>
   The Extension is not intended for use as a medical device, is not designed to receive or
-  store patient records, and is not supplied for any clinical purpose.
+  store patient records, and is not supplied for any clinical purpose. It is not intended to
+  ingest protected health information from internal systems, electronic health records,
+  patient portals, CRM records or any other non-public healthcare data, and it has no
+  connection to such systems.
 </p>
 
 <h2>7. Link tagging</h2>
@@ -177,16 +193,24 @@
 
 <h2>8. Retention and deletion</h2>
 <ul>
-  <li><strong>Solo mode:</strong> data stays in the browser until the staff member clears it, uses an in-product reset, or uninstalls the Extension. Uninstalling removes it.</li>
+  <li><strong>Solo mode:</strong> data stays in the browser until the staff member clears it or
+      uses an in-product reset. Data held in Chrome's local extension storage — the queue,
+      drafts and activity log — is removed when the Extension is uninstalled. Settings held in
+      Chrome Sync may already have been synchronised to the staff member's other signed-in
+      Chrome browsers through their Google account, and are removed according to Chrome's own
+      sync behaviour rather than instantly everywhere.</li>
   <li><strong>Team mode:</strong> data is retained in the company's own database under the company's own retention policy. A company administrator can delete records directly at any time.</li>
 </ul>
 
 <h2>9. Requests about personal data</h2>
 <p>
-  Because the Extension is an internal business tool operated and configured by the company
-  that deploys it, any request relating to personal data handled through it should be
-  directed to that company, which acts as the data controller. The vendor holds no customer
-  data independently and cannot respond to such requests on the company's behalf.
+  The deploying company generally determines why and how content is processed through the
+  Extension, and is responsible for handling privacy requests relating to that use. Any request
+  about personal data handled through the Extension should therefore be directed to that
+  company. The vendor does not maintain an independent database containing customer content and
+  is not in a position to answer such requests on the company's behalf. Where a formal
+  controller and processor relationship applies, it is set out in the agreement between the
+  vendor and the company rather than assumed by this policy.
 </p>
 
 <h2>10. Security</h2>
@@ -197,10 +221,24 @@
   <li>The Extension loads no remote code; all executable code ships inside the reviewed package.</li>
 </ul>
 
-<h2>11. Children</h2>
+<h2>11. Chrome Web Store Limited Use</h2>
+<p>
+  CCB Replies' use and transfer of information received through Chrome complies with the
+  <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web
+  Store User Data Policy</a>, including its Limited Use requirements. Information the Extension
+  accesses is used only to provide and improve the workplace reply-assistance functionality
+  described in this policy. It is not used for advertising, for profiling unrelated to that
+  functionality, for creditworthiness or lending decisions, or for sale to third parties, and
+  it is not transferred to data brokers or information resellers. Any human reading of that
+  information is limited to what a customer's own staff do inside the product, to what a user
+  explicitly asks the vendor to look at for support, and to what is required by law or for
+  security.
+</p>
+
+<h2>12. Children</h2>
 <p>The Extension is a workplace tool for adult employees and is not directed at anyone under 18.</p>
 
-<h2>12. Changes</h2>
+<h2>13. Changes</h2>
 <p>
   This policy may be updated as the product changes. Material changes will be reflected in
   the "Last updated" date above, and customers under a current agreement will be notified.
